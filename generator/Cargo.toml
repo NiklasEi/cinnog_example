@@ -1,0 +1,18 @@
+[package]
+name = "generator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+app = { path = "../app", default-features = false, features = ["ssr"] }
+leptos = { workspace = true, features = [ "ssr" ]}
+cinnog = { workspace = true, features = ["generator"] }
+bevy_core.workspace = true
+bevy_ecs.workspace = true
+
+serde.workspace = true
+
+tokio = { version = "1.33.0", features = ["full"] }
+
+[features]
+development = ["cinnog/development"]
