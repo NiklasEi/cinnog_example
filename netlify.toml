@@ -7,5 +7,5 @@ package = "@netlify/plugin-lighthouse"
 
 [[redirects]]
 from = "/github"
-to = "https://github.com/NiklasEi/ecs_leptos_ssg"
+to = "https://github.com/NiklasEi/cinnog_example"
 status = 302

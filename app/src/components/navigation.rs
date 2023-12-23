@@ -1,6 +1,6 @@
 use crate::{PersonName, SiteName};
 use bevy_ecs::system::Query;
-use cinnog::{expect_resource, FileName, run_system};
+use cinnog::{expect_resource, run_system, FileName};
 use leptos::{component, view, IntoView};
 
 #[component]

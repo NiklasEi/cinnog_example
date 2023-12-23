@@ -23,7 +23,7 @@ In a more complete project, there would be helper methods/systems to e.g. load m
 
 (not in any specific order)
 - Can we upstream changes to how Leptos handles static routes that would allow us get rid of the custom fork?
-- Bevy ECS and Leptos have some namespace clashes that would be helpful to resolve (e.g. ECS Component vs Leptos Component)
+- Bevy ECS and Leptos have some name clashes that would be helpful to resolve (e.g. ECS Component vs Leptos Component)
 - Re-evaluate if more bevy crates would make sense (`bevy_app`, `bevy_assets`)
 - Publish data layer and see if we could simplify the structure of user code
   - Could we get rid of the `frontend` crate in user code?

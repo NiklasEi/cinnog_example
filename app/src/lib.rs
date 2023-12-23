@@ -5,11 +5,11 @@ use components::navigation::Navigation;
 use bevy_ecs::component::Component;
 use bevy_ecs::prelude::Resource;
 use bevy_ecs::system::{IntoSystem, Query};
+use cinnog::FileName;
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 use std::sync::{Arc, Mutex};
-use cinnog::FileName;
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -18,7 +18,7 @@ pub fn App() -> impl IntoView {
     view! {
         <Html lang="en"/>
         <Meta name="description" content="A static website generated using Leptos and Bevy ECS"/>
-        <Stylesheet href="/pkg/ecs_leptos_ssg.css"/>
+        <Stylesheet href="/pkg/cinnog_example.css"/>
 
         <Title text="Welcome to Leptos"/>
 

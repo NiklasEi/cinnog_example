@@ -1,11 +1,9 @@
-#![feature(return_position_impl_trait_in_trait)]
-
 use app::{Age, App, PersonName, SiteName};
 use bevy_ecs::prelude::*;
+use cinnog::loaders::{read_markdown_from_directory, read_ron_files_from_directory};
 use cinnog::{DataLayer, ToBundle};
 use leptos::serde;
 use std::io;
-use cinnog::loaders::{read_markdown_from_directory, read_ron_files_from_directory};
 
 #[tokio::main]
 async fn main() -> io::Result<()> {
@@ -26,7 +24,6 @@ struct PersonData {
 
 impl ToBundle for PersonData {
     fn to_bundle(self) -> impl Bundle {
-        (PersonName(self.name),
-         Age(self.age))
+        (PersonName(self.name), Age(self.age))
     }
 }

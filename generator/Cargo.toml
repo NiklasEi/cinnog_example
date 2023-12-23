@@ -7,7 +7,6 @@ edition = "2021"
 app = { path = "../app", default-features = false, features = ["ssr"] }
 leptos = { workspace = true, features = [ "ssr" ]}
 cinnog = { workspace = true, features = ["generator"] }
-bevy_core.workspace = true
 bevy_ecs.workspace = true
 
 serde.workspace = true

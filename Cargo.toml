@@ -3,7 +3,8 @@ resolver = "2"
 members = ["app", "frontend", "generator"]
 
 [workspace.dependencies]
-cinnog = {path = "../ecs_leptos_ssg/cinnog"}
+#cinnog = { path = "../cinnog" }
+cinnog = { git = "https://github.com/NiklasEi/cinnog" }
 console_error_panic_hook = "0.1"
 cfg-if = "1"
 #leptos = { path = "../leptos/leptos", features = ["nightly", "experimental-islands"] }
@@ -13,12 +14,9 @@ leptos_meta = { git = "https://github.com/NiklasEi/leptos", branch = "compatibil
 wasm-bindgen = "=0.2.89"
 tracing = "0.1.40"
 
-bevy_ecs = {  version = "0.12" }
-bevy_app = {  version = "0.12" }
-bevy_core = {  version = "0.12" }
+bevy_ecs = { version = "0.12" }
 
-serde = {  version = "1", features = ["derive"] }
-ron = "0.8.1"
+serde = { version = "1", features = ["derive"] }
 
 # Defines a size-optimized profile for the WASM bundle in release mode
 [profile.wasm-release]
@@ -29,7 +27,7 @@ codegen-units = 1
 panic = "abort"
 
 [[workspace.metadata.leptos]]
-name = "ecs_leptos_ssg"
+name = "cinnog_example"
 
 # the package in the workspace that contains the generator binary (binary crate)
 bin-package = "generator"
