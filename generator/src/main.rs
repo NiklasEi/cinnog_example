@@ -1,7 +1,10 @@
-use app::{Age, App, PersonName, SiteName, TestFontMatter};
+use app::pages::blog_post::{Post, TestFontMatter};
+use app::pages::home_page::{Age, PersonName};
+use app::{App, SiteName};
 use bevy_ecs::prelude::*;
 use cinnog::loaders::{
-    convert_markdown_to_html, read_markdown_from_directory, read_ron_files_from_directory,
+    convert_markdown_to_html, mark_with, read_markdown_from_directory,
+    read_ron_files_from_directory,
 };
 use cinnog::{DataLayer, ToBundle};
 use leptos::serde;
@@ -13,7 +16,9 @@ async fn main() -> io::Result<()> {
     data.insert_resource(SiteName("Bevy ECS + Leptos = 💕".to_owned()));
 
     data.run(read_ron_files_from_directory::<PersonData>, "people")?;
-    data.run(read_markdown_from_directory::<PostMetadata>, "posts")?;
+
+    let posts = data.run(read_markdown_from_directory::<PostFrontMatter>, "posts")?;
+    data.run(mark_with::<Post>, posts);
 
     data.run(convert_markdown_to_html, ());
 
@@ -34,11 +39,11 @@ impl ToBundle for PersonData {
 
 #[derive(serde::Deserialize, Default)]
 #[serde(default)]
-pub struct PostMetadata {
+pub struct PostFrontMatter {
     pub test: String,
 }
 
-impl ToBundle for PostMetadata {
+impl ToBundle for PostFrontMatter {
     fn to_bundle(self) -> impl Bundle {
         TestFontMatter(self.test)
     }

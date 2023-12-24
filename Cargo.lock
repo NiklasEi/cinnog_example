@@ -582,7 +582,7 @@ dependencies = [
 [[package]]
 name = "cinnog"
 version = "0.1.0"
-source = "git+https://github.com/NiklasEi/cinnog#b9127ec3c28727672806d9afd332e2541ee9503c"
+source = "git+https://github.com/NiklasEi/cinnog#7cec90fc096362cf148159e1a8bbe686d18b7351"
 dependencies = [
  "axum",
  "bevy_ecs",

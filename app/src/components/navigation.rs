@@ -1,4 +1,5 @@
-use crate::{PersonName, SiteName};
+use crate::pages::home_page::PersonName;
+use crate::SiteName;
 use bevy_ecs::system::Query;
 use cinnog::{expect_resource, run_system, FileName};
 use leptos::{component, view, IntoView};
