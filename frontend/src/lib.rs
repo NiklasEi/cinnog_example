@@ -1,5 +1,6 @@
 // This import is required for `wasm_bindgen` to do it's thing with our app
 #[allow(unused_imports)]
+#[allow(clippy::single_component_path_imports)]
 use app;
 
 use wasm_bindgen::prelude::wasm_bindgen;

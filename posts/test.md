@@ -1,4 +1,5 @@
-test: "some string"
+---
+test: some string
 ---
 This is markdown that can contain stuff like footnotes[^1] and [links](https://www.google.com).
 

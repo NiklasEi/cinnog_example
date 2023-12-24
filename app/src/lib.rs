@@ -4,8 +4,9 @@ use components::navigation::Navigation;
 
 use bevy_ecs::component::Component;
 use bevy_ecs::prelude::Resource;
-use bevy_ecs::system::{IntoSystem, Query};
-use cinnog::FileName;
+use bevy_ecs::query::With;
+use bevy_ecs::system::{In, IntoSystem, Query};
+use cinnog::{run_system_with_input, FileName};
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
@@ -49,6 +50,14 @@ pub fn App() -> impl IntoView {
                         )
                     />
 
+                    <StaticRoute
+                        path="/blog/*post"
+                        view=BlogPost
+                        static_params=Arc::new(
+                            Mutex::new(Box::new(IntoSystem::into_system(blog_static_params))),
+                        )
+                    />
+
                 </Routes>
             </main>
         </Router>
@@ -59,12 +68,22 @@ fn empty_static_params() -> StaticParamsMap {
     StaticParamsMap::default()
 }
 
-fn people_static_params(people: Query<&FileName>) -> StaticParamsMap {
+fn people_static_params(people: Query<&FileName, With<PersonName>>) -> StaticParamsMap {
     let mut map = StaticParamsMap::default();
     map.insert(
         "person".to_string(),
         people.iter().map(|person| person.0.clone()).collect(),
     );
+    map
+}
+
+fn blog_static_params(posts: Query<&FileName, With<cinnog::loaders::Html>>) -> StaticParamsMap {
+    let mut map = StaticParamsMap::default();
+    map.insert(
+        "post".to_string(),
+        posts.iter().map(|post| post.0.clone()).collect(),
+    );
+    println!("{map:?}");
     map
 }
 
@@ -78,6 +97,9 @@ pub struct SiteName(pub String);
 
 #[derive(Component, Clone)]
 pub struct PersonName(pub String);
+
+#[derive(Component, Clone)]
+pub struct TestFontMatter(pub String);
 
 #[derive(Component)]
 pub struct Age(pub u8);
@@ -95,6 +117,26 @@ fn HomePage() -> impl IntoView {
         <h1>"Hello " {current_person} ", welcome to Leptos!"</h1>
         <Counter/>
     }
+}
+
+#[component]
+fn BlogPost() -> impl IntoView {
+    let params = use_params_map().get();
+    let current_post = params.get("post").cloned().unwrap();
+    let post = run_system_with_input(get_post, current_post);
+
+    view! {
+        <Navigation/>
+        <div inner_html=post></div>
+    }
+}
+
+fn get_post(In(post): In<String>, posts: Query<(&cinnog::loaders::Html, &FileName)>) -> String {
+    let post = &posts
+        .iter()
+        .find(|(_, file_name)| file_name.0 == post)
+        .unwrap();
+    post.0 .0.clone()
 }
 
 #[island]
