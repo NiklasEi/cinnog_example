@@ -9,6 +9,12 @@ use crate::components::navigation::Navigation;
 #[derive(Component, Clone)]
 pub struct TestFontMatter(pub String);
 
+#[derive(Component, Clone)]
+pub struct DraftPost;
+
+#[derive(Component, Clone)]
+pub struct BlogYear(pub String);
+
 #[derive(Component, Clone, Default)]
 pub struct Post;
 
@@ -24,7 +30,7 @@ pub fn BlogPost() -> impl IntoView {
     }
 }
 
-fn get_post(In(post): In<String>, posts: Query<(&cinnog::loaders::Html, &FileName)>) -> String {
+fn get_post(In(post): In<String>, posts: Query<(&cinnog::loaders::markdown::Html, &FileName)>) -> String {
     let post = &posts
         .iter()
         .find(|(_, file_name)| file_name.0 == post)

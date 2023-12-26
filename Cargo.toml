@@ -14,6 +14,8 @@ leptos_meta = { git = "https://github.com/NiklasEi/leptos", branch = "compatibil
 wasm-bindgen = "=0.2.89"
 tracing = "0.1.40"
 
+regex = "1.10.2"
+
 bevy_ecs = { version = "0.12" }
 
 serde = { version = "1", features = ["derive"] }

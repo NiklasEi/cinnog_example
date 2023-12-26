@@ -12,6 +12,7 @@ bevy_ecs.workspace = true
 serde.workspace = true
 
 tokio = { version = "1.33.0", features = ["full"] }
+regex = { version = "1.10.2", features = [] }
 
 [features]
 development = ["cinnog/development"]

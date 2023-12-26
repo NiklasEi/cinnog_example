@@ -3,6 +3,7 @@ pub mod pages;
 
 use components::navigation::Navigation;
 use pages::blog_post::BlogPost;
+use pages::blog::Blog;
 use pages::home_page::HomePage;
 use pages::not_found::NotFound;
 
@@ -52,6 +53,14 @@ pub fn App() -> impl IntoView {
                         view=HomePage
                         static_params=Arc::new(
                             Mutex::new(Box::new(IntoSystem::into_system(people_static_params))),
+                        )
+                    />
+
+        <StaticRoute
+                        path="/blog"
+                        view=Blog
+                        static_params=Arc::new(
+                            Mutex::new(Box::new(IntoSystem::into_system(empty_static_params))),
                         )
                     />
 
