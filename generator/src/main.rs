@@ -53,8 +53,7 @@ impl Ingest for PostFrontMatter {
         }
     }
 
-    fn ingest_with_path(self, commands: &mut EntityCommands, path: &PathBuf) {
-        self.ingest(commands);
+    fn ingest_path(&self, commands: &mut EntityCommands, path: &PathBuf) {
         let reg = Regex::new(r"/blog/(<year>[0-9]+)/\.*").unwrap();
         if let Some(caps) = reg.captures(&path.to_string_lossy()) {
             let year = &caps["year"];

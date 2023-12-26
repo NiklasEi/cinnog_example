@@ -1,5 +1,8 @@
 body {
 	font-family: sans-serif;
+}
+
+h1 {
 	text-align: center;
 }
 
@@ -9,6 +12,16 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	padding: 5px;
+}
+
+.footnote-definition {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	.footnote-definition-label {
+		padding-right: 5px;
+	}
 }
 
 .people-links {
