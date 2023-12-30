@@ -30,7 +30,10 @@ pub fn BlogPost() -> impl IntoView {
     }
 }
 
-fn get_post(In(post): In<String>, posts: Query<(&cinnog::loaders::markdown::Html, &FileName)>) -> String {
+fn get_post(
+    In(post): In<String>,
+    posts: Query<(&cinnog::loaders::markdown::Html, &FileName)>,
+) -> String {
     let post = &posts
         .iter()
         .find(|(_, file_name)| file_name.0 == post)

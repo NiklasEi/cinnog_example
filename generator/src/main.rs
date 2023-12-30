@@ -2,14 +2,14 @@ use app::pages::blog_post::{BlogYear, DraftPost, Post, TestFontMatter};
 use app::pages::home_page::{Age, PersonName};
 use app::{App, SiteName};
 use bevy_ecs::system::EntityCommands;
-use cinnog::loaders::ron::read_ron_files_from_directory;
-use cinnog::loaders::markdown::{convert_markdown_to_html, read_markdown_from_directory};
 use cinnog::loaders::mark_with;
+use cinnog::loaders::markdown::{convert_markdown_to_html, read_markdown_from_directory};
+use cinnog::loaders::ron::read_ron_files_from_directory;
 use cinnog::{default_bundle_from_path, DataLayer, Ingest};
 use leptos::serde;
 use regex::Regex;
 use std::io;
-use std::path::PathBuf;
+use std::path::Path;
 
 #[tokio::main]
 async fn main() -> io::Result<()> {
@@ -53,7 +53,7 @@ impl Ingest for PostFrontMatter {
         }
     }
 
-    fn ingest_path(&self, commands: &mut EntityCommands, path: &PathBuf) {
+    fn ingest_path(&self, commands: &mut EntityCommands, path: &Path) {
         let reg = Regex::new(r"/blog/(<year>[0-9]+)/\.*").unwrap();
         if let Some(caps) = reg.captures(&path.to_string_lossy()) {
             let year = &caps["year"];

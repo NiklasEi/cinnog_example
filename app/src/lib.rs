@@ -2,8 +2,8 @@ mod components;
 pub mod pages;
 
 use components::navigation::Navigation;
-use pages::blog_post::BlogPost;
 use pages::blog::Blog;
+use pages::blog_post::BlogPost;
 use pages::home_page::HomePage;
 use pages::not_found::NotFound;
 
