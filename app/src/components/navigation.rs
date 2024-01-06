@@ -10,8 +10,11 @@ pub fn Navigation() -> impl IntoView {
     let persons = run_system(get_people);
     view! {
         <div class="nav">
-            <span>{site_name}</span>
+            <a href="/">{site_name}</a>
             <ul class="people-links">
+                <li>
+                    <a href="/blog.html">Blog</a>
+                </li>
                 {persons
                     .into_iter()
                     .map(|(id, person)| {

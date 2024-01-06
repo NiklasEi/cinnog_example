@@ -56,7 +56,7 @@ pub fn App() -> impl IntoView {
                         )
                     />
 
-        <StaticRoute
+                    <StaticRoute
                         path="/blog"
                         view=Blog
                         static_params=Arc::new(

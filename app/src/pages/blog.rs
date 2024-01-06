@@ -13,18 +13,18 @@ pub fn Blog() -> impl IntoView {
         <Navigation/>
         <h1>"Blog posts:"</h1>
 
-            <ul class="people-links">
-                {posts
-                    .into_iter()
-                    .map(|title| {
-                        view! {
-                            <li>
-                                <a href=format!("/blog/{}", title)>{title}</a>
-                            </li>
-                        }
-                    })
-                    .collect::<Vec<_>>()}
-            </ul>
+        <ul class="people-links">
+            {posts
+                .into_iter()
+                .map(|title| {
+                    view! {
+                        <li>
+                            <a href=format!("/blog/{}", title)>{title}</a>
+                        </li>
+                    }
+                })
+                .collect::<Vec<_>>()}
+        </ul>
     }
 }
 
