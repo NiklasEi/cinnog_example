@@ -1,5 +1,6 @@
 ---
 test: some string
+title: A test blog post
 ---
 This is markdown that can contain stuff like footnotes[^1] and [links][ecosia].
 

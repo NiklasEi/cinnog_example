@@ -14,6 +14,13 @@ h1 {
 	padding: 5px;
 }
 
+.center {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
 .footnote-definition {
 	display: flex;
 	flex-direction: row;

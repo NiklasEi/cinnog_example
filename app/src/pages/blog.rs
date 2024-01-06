@@ -1,5 +1,5 @@
 use crate::components::navigation::Navigation;
-use crate::pages::blog_post::{DraftPost, Post};
+use crate::pages::blog_post::{DraftPost, Post, PostTitle};
 use bevy_ecs::prelude::{Query, Without};
 use bevy_ecs::query::With;
 use cinnog::{run_system, FileName};
@@ -16,10 +16,10 @@ pub fn Blog() -> impl IntoView {
         <ul class="people-links">
             {posts
                 .into_iter()
-                .map(|title| {
+                .map(|(title, file_name)| {
                     view! {
                         <li>
-                            <a href=format!("/blog/{}", title)>{title}</a>
+                            <a href=format!("/blog/{}", file_name)>{title}</a>
                         </li>
                     }
                 })
@@ -28,6 +28,11 @@ pub fn Blog() -> impl IntoView {
     }
 }
 
-fn get_posts(posts: Query<&FileName, (With<Post>, Without<DraftPost>)>) -> Vec<String> {
-    posts.iter().map(|file_name| file_name.0.clone()).collect()
+fn get_posts(
+    posts: Query<(&PostTitle, &FileName), (With<Post>, Without<DraftPost>)>,
+) -> Vec<(String, String)> {
+    posts
+        .iter()
+        .map(|(title, file_name)| (title.0.clone(), file_name.0.clone()))
+        .collect()
 }

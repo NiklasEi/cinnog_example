@@ -1,8 +1,7 @@
-use app::pages::blog_post::{BlogYear, DraftPost, Post, TestFontMatter};
+use app::pages::blog_post::{BlogYear, DraftPost, Post, PostTitle, TestFontMatter};
 use app::pages::home_page::{Age, PersonName};
 use app::{App, SiteName};
 use bevy_ecs::system::EntityCommands;
-use cinnog::loaders::mark_with;
 use cinnog::loaders::markdown::{convert_markdown_to_html, read_markdown_from_directory};
 use cinnog::loaders::ron::read_ron_files_from_directory;
 use cinnog::{default_bundle_from_path, DataLayer, Ingest};
@@ -17,10 +16,7 @@ async fn main() -> io::Result<()> {
     data.insert_resource(SiteName("Bevy ECS + Leptos = 💕".to_owned()));
 
     data.run(read_ron_files_from_directory::<PersonData>, "people")?;
-
-    let posts = data.run(read_markdown_from_directory::<PostFrontMatter>, "blog")?;
-    data.run(mark_with::<Post>, posts);
-
+    data.run(read_markdown_from_directory::<PostFrontMatter>, "blog")?;
     data.run(convert_markdown_to_html, ());
 
     data.build(App).await
@@ -42,12 +38,13 @@ impl Ingest for PersonData {
 #[serde(default)]
 pub struct PostFrontMatter {
     pub test: String,
+    pub title: String,
     pub draft: bool,
 }
 
 impl Ingest for PostFrontMatter {
     fn ingest(self, commands: &mut EntityCommands) {
-        commands.insert(TestFontMatter(self.test));
+        commands.insert((TestFontMatter(self.test), PostTitle(self.title), Post));
         if self.draft {
             commands.insert(DraftPost);
         }

@@ -10,6 +10,9 @@ use crate::components::navigation::Navigation;
 pub struct TestFontMatter(pub String);
 
 #[derive(Component, Clone)]
+pub struct PostTitle(pub String);
+
+#[derive(Component, Clone)]
 pub struct DraftPost;
 
 #[derive(Component, Clone)]
