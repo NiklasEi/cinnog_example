@@ -9,14 +9,13 @@ use pages::not_found::NotFound;
 
 use bevy_ecs::prelude::Resource;
 use bevy_ecs::query::With;
-use bevy_ecs::system::{IntoSystem, Query};
-use cinnog::FileName;
+use bevy_ecs::system::Query;
+use cinnog::{run_system, FileName};
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 use pages::blog_post::Post;
 use pages::home_page::PersonName;
-use std::sync::{Arc, Mutex};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -35,51 +34,37 @@ pub fn App() -> impl IntoView {
                     <StaticRoute
                         path="/"
                         view=HomePage
-                        static_params=Arc::new(
-                            Mutex::new(Box::new(IntoSystem::into_system(empty_static_params))),
-                        )
+                        static_params=move || Box::pin(async move { StaticParamsMap::default() })
                     />
 
                     <StaticRoute
                         path="/404"
                         view=NotFound
-                        static_params=Arc::new(
-                            Mutex::new(Box::new(IntoSystem::into_system(empty_static_params))),
-                        )
+                        static_params=move || Box::pin(async move { StaticParamsMap::default() })
                     />
 
                     <StaticRoute
                         path="/person/*person"
                         view=HomePage
-                        static_params=Arc::new(
-                            Mutex::new(Box::new(IntoSystem::into_system(people_static_params))),
-                        )
+                        static_params=move || Box::pin(async move { run_system(people_static_params) })
                     />
 
                     <StaticRoute
                         path="/blog"
                         view=Blog
-                        static_params=Arc::new(
-                            Mutex::new(Box::new(IntoSystem::into_system(empty_static_params))),
-                        )
+                        static_params=move || Box::pin(async move { StaticParamsMap::default() })
                     />
 
                     <StaticRoute
                         path="/blog/*post"
                         view=BlogPost
-                        static_params=Arc::new(
-                            Mutex::new(Box::new(IntoSystem::into_system(blog_static_params))),
-                        )
+                        static_params=move || Box::pin(async move { run_system(blog_static_params) })
                     />
 
                 </Routes>
             </main>
         </Router>
     }
-}
-
-fn empty_static_params() -> StaticParamsMap {
-    StaticParamsMap::default()
 }
 
 fn people_static_params(people: Query<&FileName, With<PersonName>>) -> StaticParamsMap {

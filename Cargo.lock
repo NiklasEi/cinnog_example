@@ -582,7 +582,7 @@ dependencies = [
 [[package]]
 name = "cinnog"
 version = "0.1.0"
-source = "git+https://github.com/NiklasEi/cinnog#cfa7640631b0bee401f3f1b237ba549155cc5dc5"
+source = "git+https://github.com/NiklasEi/cinnog#a746e514032f80fa25e3fe3f8addfb70386811af"
 dependencies = [
  "axum",
  "bevy_ecs",
@@ -1305,18 +1305,9 @@ dependencies = [
 
 [[package]]
 name = "itertools"
-version = "0.10.5"
+version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b0fd2260e829bddf4cb6ea802289de2f86d6a7a690192fbe91b3f46e0f2c8473"
-dependencies = [
- "either",
-]
-
-[[package]]
-name = "itertools"
-version = "0.11.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b1c173a5686ce8bfa551b3563d0c2170bf24ca44da99c7ca4bfdab5418c3fe57"
+checksum = "25db6b064527c5d482d0423354fcd07a89a2dfe07b67892e62411946db7f07b0"
 dependencies = [
  "either",
 ]
@@ -1353,8 +1344,8 @@ checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 
 [[package]]
 name = "leptos"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "cfg-if",
  "leptos_config",
@@ -1374,8 +1365,8 @@ dependencies = [
 
 [[package]]
 name = "leptos_axum"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "axum",
  "cfg-if",
@@ -1396,8 +1387,8 @@ dependencies = [
 
 [[package]]
 name = "leptos_config"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "config",
  "regex",
@@ -1408,8 +1399,8 @@ dependencies = [
 
 [[package]]
 name = "leptos_dom"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "async-recursion",
  "cfg-if",
@@ -1418,7 +1409,7 @@ dependencies = [
  "getrandom",
  "html-escape",
  "indexmap 2.1.0",
- "itertools 0.10.5",
+ "itertools",
  "js-sys",
  "leptos_reactive",
  "once_cell",
@@ -1437,8 +1428,8 @@ dependencies = [
 
 [[package]]
 name = "leptos_hot_reload"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "anyhow",
  "camino",
@@ -1454,8 +1445,8 @@ dependencies = [
 
 [[package]]
 name = "leptos_integration_utils"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "futures",
  "leptos",
@@ -1467,14 +1458,14 @@ dependencies = [
 
 [[package]]
 name = "leptos_macro"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "attribute-derive",
  "cfg-if",
  "convert_case",
  "html-escape",
- "itertools 0.11.0",
+ "itertools",
  "leptos_hot_reload",
  "prettyplease",
  "proc-macro-error",
@@ -1489,8 +1480,8 @@ dependencies = [
 
 [[package]]
 name = "leptos_meta"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "cfg-if",
  "indexmap 2.1.0",
@@ -1502,8 +1493,8 @@ dependencies = [
 
 [[package]]
 name = "leptos_reactive"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "base64",
  "cfg-if",
@@ -1529,14 +1520,13 @@ dependencies = [
 
 [[package]]
 name = "leptos_router"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
- "bevy_ecs",
  "cached",
  "cfg-if",
  "gloo-net",
- "itertools 0.11.0",
+ "itertools",
  "js-sys",
  "lazy_static",
  "leptos",
@@ -1560,8 +1550,8 @@ dependencies = [
 
 [[package]]
 name = "leptos_server"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "inventory",
  "lazy_static",
@@ -2294,8 +2284,8 @@ dependencies = [
 
 [[package]]
 name = "server_fn"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "ciborium",
  "const_format",
@@ -2318,8 +2308,8 @@ dependencies = [
 
 [[package]]
 name = "server_fn_macro"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "const_format",
  "proc-macro-error",
@@ -2332,8 +2322,8 @@ dependencies = [
 
 [[package]]
 name = "server_fn_macro_default"
-version = "0.5.4"
-source = "git+https://github.com/NiklasEi/leptos?branch=compatibility_own_ssg_workflow#0369bc8c82096149d87c13a9ba28457dffa91435"
+version = "0.5.7"
+source = "git+https://github.com/NiklasEi/leptos#6c5588f3bfe7dfa65e9a43deb67daa8f507a549b"
 dependencies = [
  "server_fn_macro",
  "syn 2.0.48",

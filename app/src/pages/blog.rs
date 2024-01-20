@@ -19,7 +19,7 @@ pub fn Blog() -> impl IntoView {
                 .map(|(title, file_name)| {
                     view! {
                         <li>
-                            <a href=format!("/blog/{}", file_name)>{title}</a>
+                            <a href=format!("/blog/{}", file_name.0)>{title.0}</a>
                         </li>
                     }
                 })
@@ -30,9 +30,9 @@ pub fn Blog() -> impl IntoView {
 
 fn get_posts(
     posts: Query<(&PostTitle, &FileName), (With<Post>, Without<DraftPost>)>,
-) -> Vec<(String, String)> {
+) -> Vec<(PostTitle, FileName)> {
     posts
         .iter()
-        .map(|(title, file_name)| (title.0.clone(), file_name.0.clone()))
+        .map(|(title, file_name)| (title.clone(), file_name.clone()))
         .collect()
 }
