@@ -12,7 +12,7 @@ tracing.workspace = true
 bevy_ecs.workspace = true
 
 #leptos_router = { path = "../../leptos/router", features = ["nightly"] }
-leptos_router = { git = "https://github.com/NiklasEi/leptos", version = "0.5", features = ["nightly"] }
+leptos_router = { git = "https://github.com/leptos-rs/leptos", features = ["nightly"] }
 
 [features]
 default = []

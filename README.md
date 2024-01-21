@@ -2,7 +2,7 @@
 
 **This [Cinnog] App is deployed on Netlify: https://cinnog.netlify.app/**
 
-Cinnog is a static site generator using [Leptos] with Bevy ECS as a data layer. It currently uses a custom branch of Leptos to be able to directly serve the output directory as a static website and better integrate the data layer.
+Cinnog is a static site generator using [Leptos] with Bevy ECS as a data layer. It currently depends on the `m̀ain` branch of Leptos to be able to directly serve the output directory as a static website and better integrate the data layer.
 
 - `cargo make serve` serves the App with watch mode and hot-reload enabled.
 - `cargo make build` builds the project in release. The output will be in the `dist` directory and the command will not serve it, but quit instead.
