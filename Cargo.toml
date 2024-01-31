@@ -4,13 +4,13 @@ members = ["app", "frontend", "generator"]
 
 [workspace.dependencies]
 #cinnog = { path = "../cinnog", features = ["ron", "markdown"] }
-cinnog = { git = "https://github.com/NiklasEi/cinnog", features = ["ron", "markdown"] }
+cinnog = { version = "0.1", features = ["ron", "markdown"] }
 console_error_panic_hook = "0.1"
 cfg-if = "1"
 #leptos = { path = "../leptos/leptos", features = ["nightly", "experimental-islands"] }
-leptos = { git = "https://github.com/leptos-rs/leptos", features = ["nightly", "experimental-islands"] }
+leptos = { version = "0.6", features = ["nightly", "experimental-islands"] }
 #leptos_meta = { path = "../leptos/meta", features = ["nightly"] }
-leptos_meta = { git = "https://github.com/leptos-rs/leptos", features = ["nightly"] }
+leptos_meta = { version = "0.6", features = ["nightly"] }
 wasm-bindgen = "=0.2.89"
 tracing = "0.1.40"
 
