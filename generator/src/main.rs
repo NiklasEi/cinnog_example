@@ -2,24 +2,23 @@ use app::pages::blog_post::{BlogYear, DraftPost, Post, PostTitle, TestFontMatter
 use app::pages::home_page::{Age, PersonName};
 use app::{App, SiteName};
 use bevy_ecs::system::EntityCommands;
-use cinnog::loaders::markdown::{convert_markdown_to_html, read_markdown_from_directory};
-use cinnog::loaders::ron::read_ron_files_from_directory;
+use cinnog::loaders::markdown::{ConvertMarkdownToHtml, MarkdownDataLayer};
 use cinnog::{default_bundle_from_path, DataLayer, Ingest};
 use leptos::serde;
 use regex::Regex;
 use std::io;
 use std::path::Path;
+use cinnog::loaders::ron::RonDataLayer;
 
 #[tokio::main]
 async fn main() -> io::Result<()> {
-    let mut data = DataLayer::new();
-    data.insert_resource(SiteName("Bevy ECS + Leptos = 💕".to_owned()));
-
-    data.run(read_ron_files_from_directory::<PersonData>, "people")?;
-    data.run(read_markdown_from_directory::<PostFrontMatter>, "blog")?;
-    data.run(convert_markdown_to_html, ());
-
-    data.build(App).await
+    DataLayer::new()
+        .insert_resource(SiteName("Bevy ECS + Leptos = 💕".to_owned()))
+        .add_markdown_directory::<PostFrontMatter>("blog")
+        .add_ron_directory::<PersonData>("people")
+        .add_plugins(ConvertMarkdownToHtml)
+        .build(App)
+        .await
 }
 
 #[derive(serde::Deserialize)]
