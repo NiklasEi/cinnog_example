@@ -3,20 +3,20 @@ use app::pages::home_page::{Age, PersonName};
 use app::{App, SiteName};
 use bevy_ecs::system::EntityCommands;
 use cinnog::loaders::markdown::{ConvertMarkdownToHtml, MarkdownDataLayer};
-use cinnog::loaders::ron::ReadRonDirectory;
 use cinnog::{default_bundle_from_path, DataLayer, Ingest};
 use leptos::serde;
 use regex::Regex;
 use std::io;
 use std::path::Path;
+use cinnog::loaders::ron::RonDataLayer;
 
 #[tokio::main]
 async fn main() -> io::Result<()> {
     DataLayer::new()
         .insert_resource(SiteName("Bevy ECS + Leptos = 💕".to_owned()))
         .add_markdown_directory::<PostFrontMatter>("blog")
+        .add_ron_directory::<PersonData>("people")
         .add_plugins(ConvertMarkdownToHtml)
-        .add_plugins(ReadRonDirectory::<PersonData>::new("people"))
         .build(App)
         .await
 }
