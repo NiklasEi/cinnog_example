@@ -555,6 +555,8 @@ dependencies = [
 [[package]]
 name = "cinnog"
 version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "97138d7c7f7bd19ac822e7611345cdf8a4683c850229a95648ddd1fb7c49b4e7"
 dependencies = [
  "axum",
  "bevy_app",

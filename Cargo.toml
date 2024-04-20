@@ -3,8 +3,8 @@ resolver = "2"
 members = ["app", "frontend", "generator"]
 
 [workspace.dependencies]
-cinnog = { path = "../cinnog", features = ["ron", "markdown"] }
-#cinnog = { version = "0.2", features = ["ron", "markdown"] }
+#cinnog = { path = "../cinnog", features = ["ron", "markdown"] }
+cinnog = { version = "0.3", features = ["ron", "markdown"] }
 console_error_panic_hook = "0.1"
 cfg-if = "1"
 #leptos = { path = "../leptos/leptos", features = ["nightly", "experimental-islands"] }
