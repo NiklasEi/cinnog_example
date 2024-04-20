@@ -2,7 +2,7 @@ use app::pages::blog_post::{BlogYear, DraftPost, Post, PostTitle, TestFontMatter
 use app::pages::home_page::{Age, PersonName};
 use app::{App, SiteName};
 use bevy_ecs::system::EntityCommands;
-use cinnog::loaders::markdown::{ConvertMarkdownToHtml, ReadMarkdownDirectory};
+use cinnog::loaders::markdown::{ConvertMarkdownToHtml, MarkdownDataLayer};
 use cinnog::loaders::ron::ReadRonDirectory;
 use cinnog::{default_bundle_from_path, DataLayer, Ingest};
 use leptos::serde;
@@ -12,13 +12,13 @@ use std::path::Path;
 
 #[tokio::main]
 async fn main() -> io::Result<()> {
-    let mut data = DataLayer::new();
-    data.insert_resource(SiteName("Bevy ECS + Leptos = 💕".to_owned()))
-        .add_plugins(ReadMarkdownDirectory::<PostFrontMatter>::new(vec!["blog"]))
+    DataLayer::new()
+        .insert_resource(SiteName("Bevy ECS + Leptos = 💕".to_owned()))
+        .add_markdown_directory::<PostFrontMatter>("blog")
         .add_plugins(ConvertMarkdownToHtml)
-        .add_plugins(ReadRonDirectory::<PersonData>::new("people"));
-
-    data.build(App).await
+        .add_plugins(ReadRonDirectory::<PersonData>::new("people"))
+        .build(App)
+        .await
 }
 
 #[derive(serde::Deserialize)]
