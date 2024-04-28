@@ -20,18 +20,24 @@ alias = "format"
 
 [tasks.build]
 install_crate = "cargo-leptos"
+# Pin to keep usign the same version of wasm-bindgen
+install_crate_args = ["--version", "0.2.17"]
 command = "cargo"
 args = ["leptos", "serve", "-r"]
 workspace = false
 
 [tasks.serve]
 install_crate = "cargo-leptos"
+# Pin to keep usign the same version of wasm-bindgen
+install_crate_args = ["--version", "0.2.17"]
 command = "cargo"
 args = ["leptos", "watch", "--features", "development", "--hot-reload"]
 workspace = false
 
 [tasks.e2e]
 install_crate = "cargo-leptos"
+# Pin to keep usign the same version of wasm-bindgen
+install_crate_args = ["--version", "0.2.17"]
 command = "cargo"
 args = ["leptos", "end-to-end", "--features", "development"]
 workspace = false
