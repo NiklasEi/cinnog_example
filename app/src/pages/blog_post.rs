@@ -1,6 +1,7 @@
 use bevy_ecs::component::Component;
 use bevy_ecs::prelude::{In, Query};
-use cinnog::{run_system_with_input, FileName};
+use cinnog::loaders::markdown::Html;
+use cinnog::run_system_with_input;
 use leptos::*;
 use leptos_router::use_params_map;
 
@@ -18,8 +19,8 @@ pub struct DraftPost;
 #[derive(Component, Clone)]
 pub struct BlogYear(pub String);
 
-#[derive(Component, Clone, Default)]
-pub struct Post;
+#[derive(Component, Clone, Default, Debug)]
+pub struct Post(pub String);
 
 #[component]
 pub fn BlogPost() -> impl IntoView {
@@ -33,13 +34,10 @@ pub fn BlogPost() -> impl IntoView {
     }
 }
 
-fn get_post(
-    In(post): In<String>,
-    posts: Query<(&cinnog::loaders::markdown::Html, &FileName)>,
-) -> String {
-    let post = &posts
+fn get_post(In(post): In<String>, posts: Query<(&Html, &Post)>) -> String {
+    let (&Html(ref html), _) = &posts
         .iter()
         .find(|(_, file_name)| file_name.0 == post)
         .unwrap();
-    post.0 .0.clone()
+    html.clone()
 }

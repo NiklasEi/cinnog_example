@@ -11,8 +11,7 @@ leptos_meta.workspace = true
 tracing.workspace = true
 bevy_ecs.workspace = true
 
-#leptos_router = { path = "../../leptos/router", features = ["nightly"] }
-leptos_router = { version = "0.6", features = ["nightly"] }
+leptos_router = { workspace = true, features = ["nightly"] }
 
 [features]
 default = []
