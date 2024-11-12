@@ -1,9 +1,9 @@
-use bevy_ecs::component::Component;
-use leptos::*;
-use leptos_router::use_route;
-
 use crate::components::counter::Counter;
 use crate::components::navigation::Navigation;
+use bevy_ecs::component::Component;
+use leptos::prelude::*;
+use leptos::{component, IntoView};
+use leptos_router::hooks::use_params_map;
 
 #[derive(Component, Clone)]
 pub struct PersonName(pub String);
@@ -13,11 +13,8 @@ pub struct Age(pub u8);
 
 #[component]
 pub fn HomePage() -> impl IntoView {
-    let route = use_route();
-    let params = route.params().get();
-    let no_person = "Dr. Who".to_owned();
-    let current_person = params.0.get("person");
-    let current_person = current_person.unwrap_or(&no_person);
+    let params = use_params_map().get();
+    let current_person = params.get("person").unwrap_or("Dr. Who".to_string());
 
     view! {
         <Navigation/>

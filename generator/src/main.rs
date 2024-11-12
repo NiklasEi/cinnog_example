@@ -1,6 +1,6 @@
 use app::pages::blog_post::{BlogYear, DraftPost, Post, PostTitle, TestFontMatter};
 use app::pages::home_page::{Age, PersonName};
-use app::{App, SiteName};
+use app::{shell, SiteName};
 use bevy_ecs::system::EntityCommands;
 use cinnog::loaders::markdown::{ConvertMarkdownToHtml, MarkdownDataLayer};
 use cinnog::loaders::ron::RonDataLayer;
@@ -17,7 +17,7 @@ async fn main() -> io::Result<()> {
         .add_markdown_directory::<PostFrontMatter>("blog")
         .add_ron_directory::<PersonData>("people")
         .add_plugins(ConvertMarkdownToHtml)
-        .build(App)
+        .build(shell)
         .await
 }
 

@@ -1,5 +1,5 @@
 use crate::Navigation;
-use leptos::{component, view, IntoView};
+use leptos::prelude::*;
 
 #[component]
 pub fn NotFound() -> impl IntoView {

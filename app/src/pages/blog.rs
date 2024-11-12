@@ -3,7 +3,7 @@ use crate::pages::blog_post::{DraftPost, Post, PostTitle};
 use bevy_ecs::prelude::{Query, Without};
 use bevy_ecs::query::With;
 use cinnog::{run_system, FileName};
-use leptos::{component, view, IntoView};
+use leptos::prelude::*;
 
 #[component]
 pub fn Blog() -> impl IntoView {

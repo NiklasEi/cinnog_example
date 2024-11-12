@@ -1,11 +1,10 @@
+use crate::components::navigation::Navigation;
 use bevy_ecs::component::Component;
 use bevy_ecs::prelude::{In, Query};
 use cinnog::loaders::markdown::Html;
 use cinnog::run_system_with_input;
-use leptos::*;
-use leptos_router::use_params_map;
-
-use crate::components::navigation::Navigation;
+use leptos::prelude::*;
+use leptos_router::hooks::use_params_map;
 
 #[derive(Component, Clone)]
 pub struct TestFontMatter(pub String);
@@ -25,7 +24,7 @@ pub struct Post(pub String);
 #[component]
 pub fn BlogPost() -> impl IntoView {
     let params = use_params_map().get();
-    let current_post = params.get("post").cloned().unwrap();
+    let current_post = params.get("post").unwrap();
     let post = run_system_with_input(get_post, current_post);
 
     view! {
@@ -35,7 +34,7 @@ pub fn BlogPost() -> impl IntoView {
 }
 
 fn get_post(In(post): In<String>, posts: Query<(&Html, &Post)>) -> String {
-    let (&Html(ref html), _) = &posts
+    let (Html(html), _) = &posts
         .iter()
         .find(|(_, file_name)| file_name.0 == post)
         .unwrap();

@@ -2,7 +2,7 @@ use crate::pages::home_page::PersonName;
 use crate::SiteName;
 use bevy_ecs::system::Query;
 use cinnog::{expect_resource, run_system, FileName};
-use leptos::{component, view, IntoView};
+use leptos::prelude::*;
 
 #[component]
 pub fn Navigation() -> impl IntoView {
