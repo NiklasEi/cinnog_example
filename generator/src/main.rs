@@ -2,9 +2,10 @@ use app::pages::blog_post::{BlogYear, DraftPost, Post, PostTitle, TestFontMatter
 use app::pages::home_page::{Age, PersonName};
 use app::{shell, SiteName};
 use bevy_ecs::system::EntityCommands;
+use cinnog::generator::Generator;
 use cinnog::loaders::markdown::{ConvertMarkdownToHtml, MarkdownDataLayer};
 use cinnog::loaders::ron::RonDataLayer;
-use cinnog::{default_bundle_from_path, DataLayer, Ingest};
+use cinnog::{default_bundle_from_path, Ingest};
 use leptos::serde;
 use regex::Regex;
 use std::io;
@@ -12,7 +13,7 @@ use std::path::Path;
 
 #[tokio::main]
 async fn main() -> io::Result<()> {
-    DataLayer::new()
+    Generator::new()
         .insert_resource(SiteName("Bevy ECS + Leptos = 💕".to_owned()))
         .add_markdown_directory::<PostFrontMatter>("blog")
         .add_ron_directory::<PersonData>("people")

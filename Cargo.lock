@@ -490,7 +490,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 [[package]]
 name = "cinnog"
 version = "0.4.0-dev"
-source = "git+https://github.com/NiklasEi/cinnog#e60b78ba946287e0d53df888a0ed6d376bfd3826"
+source = "git+https://github.com/NiklasEi/cinnog#a08e45bb80d5aa77b4801028fcb5d34042ed8b96"
 dependencies = [
  "axum",
  "bevy_app",
