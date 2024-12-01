@@ -3,8 +3,8 @@ resolver = "2"
 members = ["app", "frontend", "generator"]
 
 [workspace.dependencies]
-cinnog = { path = "../cinnog", features = ["ron", "markdown"] }
-#cinnog = { version = "0.3", features = ["ron", "markdown"] }
+cinnog = { version = "0.4", features = ["ron", "markdown"] }
+#cinnog = { path = "../cinnog", features = ["ron", "markdown"] }
 
 leptos = { version = "0.7.0", features = ["nightly", "islands"] }
 leptos_meta = { version = "0.7.0" }
