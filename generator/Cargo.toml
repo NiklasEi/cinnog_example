@@ -1,7 +1,7 @@
 [package]
 name = "generator"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [dependencies]
 app = { path = "../app", default-features = false, features = ["ssr"] }
@@ -11,7 +11,7 @@ bevy_ecs.workspace = true
 
 serde.workspace = true
 
-tokio = { version = "1.33.0", features = ["full"] }
+tokio = { version = "1.43.0", features = ["full"] }
 regex = { version = "1.10.2", features = [] }
 
 [features]
