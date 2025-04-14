@@ -6,9 +6,9 @@ members = ["app", "frontend", "generator"]
 cinnog = { git = "https://github.com/NiklasEi/cinnog", branch = "leptos-0-8", features = ["ron", "markdown"] }
 # cinnog = { path = "../cinnog", features = ["ron", "markdown"] }
 
-leptos = { git = "https://github.com/leptos-rs/leptos", features = ["nightly", "islands"] }
-leptos_meta = { git = "https://github.com/leptos-rs/leptos"}
-leptos_router = {  git = "https://github.com/leptos-rs/leptos", features = ["nightly"] }
+leptos = { version = "0.8.0-rc1", features = ["nightly", "islands"] }
+leptos_meta = { version = "0.8.0-rc1" }
+leptos_router = { version = "0.8.0-rc1", features = ["nightly"] }
 # leptos = { path = "../leptos/leptos", features = ["nightly", "islands"] }
 # leptos_meta = { path = "../leptos/meta" }
 # leptos_router = { path = "../leptos/router", features = ["nightly"] }
