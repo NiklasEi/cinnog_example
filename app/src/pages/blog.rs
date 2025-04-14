@@ -2,7 +2,7 @@ use crate::components::navigation::Navigation;
 use crate::pages::blog_post::{DraftPost, Post, PostTitle};
 use bevy_ecs::prelude::{Query, Without};
 use bevy_ecs::query::With;
-use cinnog::{run_system, FileName};
+use cinnog::{FileName, run_system};
 use leptos::prelude::*;
 
 #[component]

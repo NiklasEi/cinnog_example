@@ -1,7 +1,7 @@
-use crate::pages::home_page::PersonName;
 use crate::SiteName;
+use crate::pages::home_page::PersonName;
 use bevy_ecs::system::Query;
-use cinnog::{expect_resource, run_system, FileName};
+use cinnog::{FileName, expect_resource, run_system};
 use leptos::prelude::*;
 
 #[component]

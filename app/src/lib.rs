@@ -11,13 +11,13 @@ use crate::pages::blog_post::BlogPost;
 use bevy_ecs::prelude::Resource;
 use bevy_ecs::query::With;
 use bevy_ecs::system::Query;
-use cinnog::{run_system, FileName};
-use leptos::prelude::*;
+use cinnog::{FileName, run_system};
 use leptos::IntoView;
+use leptos::prelude::*;
 use leptos_meta::*;
 use leptos_router::components::*;
 use leptos_router::static_routes::StaticRoute;
-use leptos_router::{path, SsrMode};
+use leptos_router::{SsrMode, path};
 use pages::blog_post::Post;
 use pages::home_page::PersonName;
 

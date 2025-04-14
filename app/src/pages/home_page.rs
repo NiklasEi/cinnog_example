@@ -2,7 +2,7 @@ use crate::components::counter::Counter;
 use crate::components::navigation::Navigation;
 use bevy_ecs::component::Component;
 use leptos::prelude::*;
-use leptos::{component, IntoView};
+use leptos::{IntoView, component};
 use leptos_router::hooks::use_params_map;
 
 #[derive(Component, Clone)]

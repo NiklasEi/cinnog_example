@@ -1,11 +1,11 @@
 use app::pages::blog_post::{BlogYear, DraftPost, Post, PostTitle, TestFontMatter};
 use app::pages::home_page::{Age, PersonName};
-use app::{shell, SiteName};
+use app::{SiteName, shell};
 use bevy_ecs::system::EntityCommands;
 use cinnog::generator::Generator;
 use cinnog::loaders::markdown::{ConvertMarkdownToHtml, MarkdownDataLayer};
 use cinnog::loaders::ron::RonDataLayer;
-use cinnog::{default_bundle_from_path, Ingest};
+use cinnog::{Ingest, default_bundle_from_path};
 use leptos::serde;
 use regex::Regex;
 use std::io;
