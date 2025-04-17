@@ -3,7 +3,7 @@ resolver = "2"
 members = ["app", "frontend", "generator"]
 
 [workspace.dependencies]
-cinnog = { git = "https://github.com/NiklasEi/cinnog", branch = "leptos-0-8", features = ["ron", "markdown"] }
+cinnog = { version = "0.5.0-rc.1", features = ["ron", "markdown"] }
 # cinnog = { path = "../cinnog", features = ["ron", "markdown"] }
 
 leptos = { version = "0.8.0-rc1", features = ["nightly", "islands"] }
@@ -18,7 +18,7 @@ wasm-bindgen = "=0.2.100"
 console_error_panic_hook = "0.1"
 tracing = "0.1.40"
 
-bevy_ecs = { version = "0.15" }
+bevy_ecs = { version = "0.16.0-rc.5" }
 
 serde = { version = "1", features = ["derive"] }
 
