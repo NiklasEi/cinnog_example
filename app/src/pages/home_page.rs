@@ -17,8 +17,8 @@ pub fn HomePage() -> impl IntoView {
     let current_person = params.get("person").unwrap_or("Dr. Who".to_string());
 
     view! {
-        <Navigation/>
+        <Navigation />
         <h1>"Hello " {current_person} ", welcome to Leptos!"</h1>
-        <Counter/>
+        <Counter />
     }
 }

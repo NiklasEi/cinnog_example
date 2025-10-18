@@ -10,7 +10,7 @@ pub fn Blog() -> impl IntoView {
     let posts = run_system(get_posts);
 
     view! {
-        <Navigation/>
+        <Navigation />
         <h1>"Blog posts:"</h1>
 
         <ul class="people-links">

@@ -26,14 +26,14 @@ pub fn shell(options: LeptosOptions) -> impl IntoView {
         <!DOCTYPE html>
         <html lang="en">
             <head>
-                <meta charset="utf-8"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <AutoReload options=options.clone()/>
-                <HydrationScripts options islands=true/>
-                <MetaTags/>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <AutoReload options=options.clone() />
+                <HydrationScripts options islands=true />
+                <MetaTags />
             </head>
             <body>
-                <App/>
+                <App />
             </body>
         </html>
     }
@@ -45,26 +45,18 @@ pub fn App() -> impl IntoView {
     let fallback = || view! { "Page not found." }.into_view();
 
     view! {
-        <Stylesheet href="/pkg/cinnog_example.css"/>
-        <Title text="Welcome to Leptos"/>
+        <Stylesheet href="/pkg/cinnog_example.css" />
+        <Title text="Welcome to Leptos" />
 
         <Router>
             <main>
                 <FlatRoutes fallback>
-                    <Route
-                        path=path!("/")
-                        view=HomePage
-                        ssr=SsrMode::Static(
-                            StaticRoute::new(),
-                        )
-                    />
+                    <Route path=path!("/") view=HomePage ssr=SsrMode::Static(StaticRoute::new()) />
 
                     <Route
                         path=path!("/404")
                         view=NotFound
-                        ssr=SsrMode::Static(
-                            StaticRoute::new(),
-                        )
+                        ssr=SsrMode::Static(StaticRoute::new())
                     />
 
                     <Route
@@ -76,16 +68,11 @@ pub fn App() -> impl IntoView {
                                     [("person".into(), run_system(people_static_params))]
                                         .into_iter()
                                         .collect()
-                                }),)
-                    />
-
-                    <Route
-                        path=path!("/blog")
-                        view=Blog
-                        ssr=SsrMode::Static(
-                            StaticRoute::new(),
+                                }),
                         )
                     />
+
+                    <Route path=path!("/blog") view=Blog ssr=SsrMode::Static(StaticRoute::new()) />
 
                     <Route
                         path=path!("/blog/*post")

@@ -4,7 +4,7 @@ use leptos::prelude::*;
 #[component]
 pub fn NotFound() -> impl IntoView {
     view! {
-        <Navigation/>
+        <Navigation />
         <h1>"Not Found from Leptos"</h1>
     }
 }

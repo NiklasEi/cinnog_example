@@ -28,7 +28,7 @@ pub fn BlogPost() -> impl IntoView {
     let post = run_system_with_input(get_post, current_post);
 
     view! {
-        <Navigation/>
+        <Navigation />
         <div inner_html=post></div>
     }
 }
