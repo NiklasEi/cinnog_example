@@ -7,7 +7,7 @@ pub fn Counter() -> impl IntoView {
 
     view! {
         <div class="center">
-            <button on:click=on_click>"Click Me: " {count}</button>
+            <button on:click=on_click>"Click Me: " {move || count.get()}</button>
         </div>
     }
 }
